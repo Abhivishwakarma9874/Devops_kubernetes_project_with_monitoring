@@ -1,9 +1,11 @@
 # Architecture
 ### Creating and Managing Kubernetes Cluster with Kind
 
-![img.png](img.png)
+<img width="762" height="371" alt="image" src="https://github.com/user-attachments/assets/475a570e-b741-42ff-87a4-973830cec67d" />
 
-![img_1.png](img_1.png)
+
+<img width="611" height="294" alt="image" src="https://github.com/user-attachments/assets/6c5a96f5-6a19-4da0-a2c5-92bba1365e8a" />
+
 
 Step-1 
 first launch EC2 instance on AWS
@@ -38,7 +40,8 @@ STEP-2
 ```cookie
 git clone https://github.com/LondheShubham153/k8s-kind-voting-app.git
 ```
-![img_2.png](img_2.png)
+<img width="907" height="219" alt="image" src="https://github.com/user-attachments/assets/c9c6f711-2a5f-41fc-8a35-8ad7b6eed8e6" />
+
 
 ```cookie
 ubuntu@ip-172-31-46-109:~/k8s-kind-voting-app/kind-cluster$ chmod +x install_kind.sh
@@ -109,20 +112,24 @@ deployment.apps/worker created
 ```cookie
 kubectl get all
 ```
-![img_3.png](img_3.png)
-install heml
+<img width="1183" height="604" alt="image" src="https://github.com/user-attachments/assets/d41a88ab-a0f9-4928-9c20-41d87fcc7fbf" />
+
+`install heml`
+
 ```cookie
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 ```
 
-![img_4.png](img_4.png)
+<img width="1238" height="372" alt="image" src="https://github.com/user-attachments/assets/703c7f71-bb55-4cc7-90a0-8bcb6b8e60ee" />
+
 ```
 chmod +x get_helm.sh
 ```
 ```
 ./get_helm.sh
 ```
-![img_5.png](img_5.png)
+<img width="716" height="153" alt="image" src="https://github.com/user-attachments/assets/6377508f-23bb-4079-9ca9-f026db34305f" />
+
 Install Kube Prometheus Stack
 ```cookie
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -188,13 +195,17 @@ ubuntu@ip-172-31-41-107:~$
 ```cookie
 kubectl port-forward svc/kind-prometheus-kube-prome-prometheus -n monitoring 9090:9090 --address=0.0.0.0 &
 ```
-![img_7.png](img_7.png)
-![img_6.png](img_6.png)
-![img_8.png](img_8.png)
+<img width="1171" height="344" alt="image" src="https://github.com/user-attachments/assets/4d64d566-b271-4305-aef8-e4e059709456" />
+
+<img width="1240" height="621" alt="image" src="https://github.com/user-attachments/assets/5aa3aebd-dd4f-4460-8309-7b109ede4380" />
+
+<img width="1227" height="655" alt="image" src="https://github.com/user-attachments/assets/e5c64cfe-c309-476a-bf18-cebf97ae9ba4" />
+
 
 URL:
 http://52.66.181.122:9090/metrics
-![img_9.png](img_9.png)
+<img width="1254" height="635" alt="image" src="https://github.com/user-attachments/assets/ae050de2-71a3-445c-baea-891523604a84" />
+
 
 # (Prometheus Queries)
 ```cookie
@@ -208,11 +219,16 @@ sum(rate(container_network_transmit_bytes_total{namespace="default"}[5m])) by (p
 
 
 ```
-![img_10.png](img_10.png)
-![img_11.png](img_11.png)
-![img_12.png](img_12.png)
-![img_13.png](img_13.png)
-![img_14.png](img_14.png)
+<img width="1254" height="527" alt="image" src="https://github.com/user-attachments/assets/14af32b0-e100-4445-9927-84ad97374623" />
+
+<img width="1270" height="636" alt="image" src="https://github.com/user-attachments/assets/4b8dfc28-ea2e-4043-b307-aef09909b561" />
+
+<img width="1248" height="650" alt="image" src="https://github.com/user-attachments/assets/6675a102-b957-4564-a451-474ac1d71eb3" />
+
+<img width="1253" height="648" alt="image" src="https://github.com/user-attachments/assets/d12acf2f-9777-4fe4-b303-aa85e0561001" />
+
+<img width="1249" height="659" alt="image" src="https://github.com/user-attachments/assets/d1195d71-5288-4a10-97f4-41f42bfb7d7b" />
+
 
 ```cookie
  kubectl port-forward svc/vote 5000:5000 --address=0.0.0.0 &
@@ -221,17 +237,21 @@ add port on security group
 ```cookie
 http://52.66.181.122:5000/
 ```
-![img_15.png](img_15.png)
+<img width="1238" height="650" alt="image" src="https://github.com/user-attachments/assets/70f5360a-6d78-4bdc-8be2-578ba53998be" />
+
 
 Now we will setup grafana
-![img_16.png](img_16.png)
+<img width="1204" height="426" alt="image" src="https://github.com/user-attachments/assets/98cd772d-7224-4bea-a268-25c38163a2be" />
+
 ```cookie
 kubectl port-forward svc/kind-prometheus-grafana -n monitoring 3000:80 --address=0.0.0.0 &
 ```
 ```cookie
-http://52.66.181.122:9090/
+http://52.66.181.122:3000/
 ```
-![img_17.png](img_17.png)
+<img width="1224" height="649" alt="image" src="https://github.com/user-attachments/assets/545c76e0-e1ca-44a2-84ea-7cf9ce194bd7" />
+
+
 
 Email: admin
 password: admin
@@ -246,21 +266,28 @@ or
 kubectl exec -it kind-prometheus-grafana-768b44748c-hdmq2 -n monitoring -- grafana-cli admin reset-admin-password admin
 ```
 
-![img_18.png](img_18.png)
+<img width="1240" height="654" alt="image" src="https://github.com/user-attachments/assets/0ed72200-ba28-4dfa-8f1f-643dfbe525c6" />
 
-![img_19.png](img_19.png)
-![img_20.png](img_20.png)
+<img width="1277" height="660" alt="image" src="https://github.com/user-attachments/assets/ecc3632a-b9da-4cfc-80d3-56a2dcbb22e5" />
+
+<img width="1251" height="648" alt="image" src="https://github.com/user-attachments/assets/5d19e45e-3b91-4740-a7c8-ad15d4b1e552" />
+
 ye already add ho chuka hai
 
-![img_21.png](img_21.png)
-Now we will create dashboard
-![img_22.png](img_22.png)
-![img_23.png](img_23.png)
-then select promotheus then
-![img_24.png](img_24.png)
-![img_25.png](img_25.png)
+<img width="1246" height="634" alt="image" src="https://github.com/user-attachments/assets/da7f5e59-8b8b-48a7-a3c3-dff01722e677" />
 
-![img_26.png](img_26.png)
+Now we will create dashboard
+<img width="1238" height="610" alt="image" src="https://github.com/user-attachments/assets/83eb3506-79d2-4f35-b886-b6e44f94a71e" />
+
+<img width="1236" height="610" alt="image" src="https://github.com/user-attachments/assets/1f225a13-fde8-4a54-b29e-25ffa5aae892" />
+
+then select promotheus then
+<img width="1240" height="649" alt="image" src="https://github.com/user-attachments/assets/c9c640d8-d9df-471b-8506-2bd1e48ff32d" />
+
+<img width="1243" height="653" alt="image" src="https://github.com/user-attachments/assets/c9678b10-3a26-4e0c-8e00-9e7634f76b69" />
+
+<img width="1228" height="638" alt="image" src="https://github.com/user-attachments/assets/a1ed402b-e2c4-4ca0-a8c4-46c59fad13a6" />
+
 To set up the dashboard, I searched for a suitable Grafana dashboard on Google and copied its dashboard ID. Then, I navigated to my Grafana instance and used the import option to add the dashboard using that ID. After importing, I selected Prometheus as the data source. Once everything was configured, the dashboard loaded successfully and started displaying the metrics as expected.
 
 
