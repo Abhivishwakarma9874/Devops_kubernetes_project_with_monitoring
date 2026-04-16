@@ -87,4 +87,6 @@ ubuntu@ip-172-31-42-192:~/two-tier-flask-app/eks-manifests$ kubectl apply -f two
 
 <img width="1355" height="593" alt="image" src="https://github.com/user-attachments/assets/d591396d-4c8d-4a0b-a896-b9fbb50cea92" />
 
+<img width="624" height="234" alt="image" src="https://github.com/user-attachments/assets/828d95c8-04ba-41b2-a637-781a12d4b8c5" />
+
 
